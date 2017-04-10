@@ -5,22 +5,22 @@
 #include "PacketQueueInterface.hpp"
 #include "PacketQueue.hpp"
 #include "PacketEnums.hpp"
-#include "AIStatePacket.hpp"
-#include "TransformPacket.hpp"
-#include "AnimationPacket.hpp"
-#include "MetaDataPacket.hpp"
-#include "SpellPacket.hpp"
-#include "ChargingPacket.hpp"
-#include "QuickBlendPacket.hpp"
-#include "DamagePacket.hpp"
-#include "ChangeSpellsPacket.hpp"
-#include "EventPacket.hpp"
-#include "HealthPacket.hpp"
-#include "DashPacket.hpp"
+#include "Packets/AIStatePacket.hpp"
+#include "Packets/TransformPacket.hpp"
+#include "Packets/AnimationPacket.hpp"
+#include "Packets/MetaDataPacket.hpp"
+#include "Packets/SpellPacket.hpp"
+#include "Packets/ChargingPacket.hpp"
+#include "Packets/QuickBlendPacket.hpp"
+#include "Packets/DamagePacket.hpp"
+#include "Packets/ChangeSpellsPacket.hpp"
+#include "Packets/EventPacket.hpp"
+#include "Packets/HealthPacket.hpp"
+#include "Packets/DashPacket.hpp"
 
 #ifdef DEBUGGING_NETWORK
-#include "PingPacket.hpp"
-#include "DebugNetwork.hpp"
+#include "Packets/PingPacket.hpp"
+#include "Packets/DebugNetwork.hpp"
 #endif
 
 #include <vector>
@@ -52,15 +52,3 @@ private:
 	DebugNetwork * debugNetwork_ptr;
 #endif
 };
-
-extern template void PacketFilter::addNewQueue<Packet::AIStatePacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::AnimationPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::ChangeSpellsPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::ChargingPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::DamagePacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::DashPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::EventPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::HealthPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::QuickBlendPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::SpellPacket>(const int& size);
-extern template void PacketFilter::addNewQueue<Packet::TransformPacket>(const int& size);

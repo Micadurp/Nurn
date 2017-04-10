@@ -4,7 +4,7 @@
 #include <atomic>
 #include <chrono>
 
-#include "PingPacket.hpp"
+#include "Packets/PingPacket.hpp"
 
 class DebugNetwork
 {
