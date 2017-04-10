@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.6)
 
 # Root project settings
-set(PROJECT_NAME NurnCode)
+set(PROJECT_NAME Nurn)
 project(${PROJECT_NAME})
 
 
