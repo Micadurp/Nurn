@@ -25,7 +25,7 @@
 
 #include <vector>
 #include <memory>
-
+#include <cstring>
 #define packetSize 1400
 
 class Packager

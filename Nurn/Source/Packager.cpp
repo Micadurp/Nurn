@@ -102,7 +102,8 @@ void Packager::addNewPackets(uint16_t &netPacketSize, bool& fullPackage, const u
 
 void Packager::addMetaDataPacket(const uint16_t& type, uint16_t& netPacketSize, const uint16_t& sizeInBytes)
 {
-	memcpy(this->memory + netPacketSize, &Packet::MetaDataPacket(type, sizeInBytes), sizeof(Packet::MetaDataPacket));
+	auto metaDataPacket = Packet::MetaDataPacket(type, sizeInBytes);
+	memcpy(this->memory + netPacketSize, &metaDataPacket, sizeof(Packet::MetaDataPacket));
 
 	netPacketSize += sizeof(Packet::MetaDataPacket);
 }

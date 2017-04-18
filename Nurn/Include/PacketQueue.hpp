@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <atomic>
+#include <cstring>
 #include "PacketQueueInterface.hpp"
 
 // http://blogs.msmvps.com/vandooren/2007/01/05/creating-a-thread-safe-producer-consumer-queue-in-c-without-using-locks/
@@ -10,7 +11,7 @@ template<typename Packet>
 class PacketQueue : public PacketQueueInterface
 {
 private:
-	typename Packet * queuePointer;
+	Packet * queuePointer;
 	uint8_t queueSize;
 	std::atomic<uint8_t> readIndex;
 	std::atomic<uint8_t> writeIndex;
@@ -27,17 +28,19 @@ public:
 	size_t getPacketSize() override; // Push x bytes of packets to queue
 };
 
-template<typename Packet> PacketQueue<typename Packet>::PacketQueue(uint8_t queueSize)
+template<typename Packet> 
+PacketQueue<Packet>::PacketQueue(uint8_t queueSize)
 {
 	this->readIndex = 0;
 	this->writeIndex = 0;
 	this->queueSize = queueSize;
 	this->sizeOfIndividualPacket = sizeof(Packet);
 
-	this->queuePointer = new typename Packet[this->queueSize];
+	this->queuePointer = new Packet[this->queueSize];
 }
 
-template<typename Packet> PacketQueue<typename Packet>::~PacketQueue()
+template<typename Packet> 
+PacketQueue<Packet>::~PacketQueue()
 {
 	if(this->queuePointer)
 	{

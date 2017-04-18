@@ -88,7 +88,7 @@ std::shared_ptr<PacketQueueInterface> PacketFilter::getQueue(const uint8_t& pack
 template<typename packetType>
 void PacketFilter::addNewQueue(const int& size)
 {
-	this->queueList.emplace_back(new PacketQueue<typename packetType>(size));
+	this->queueList.emplace_back(new PacketQueue<packetType>(size));
 }
 
 template void PacketFilter::addNewQueue<Packet::AIStatePacket>(const int& size);

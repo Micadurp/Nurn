@@ -23,7 +23,8 @@ namespace Nurn
 			return false;
 		}
 
-		int sent_bytes = sendto(networkSocket, (const char*)data, size, 0, (sockaddr*)&destination.GetAddress(), sizeof(sockaddr_in));
+		sockaddr_in connectionaddr = destination.GetAddress();
+		int sent_bytes = sendto(networkSocket, (const char*)data, size, 0, (sockaddr*)&connectionaddr, sizeof(sockaddr_in));
 
 		return sent_bytes == size;
 	}
