@@ -36,13 +36,9 @@ namespace Nurn
 		// Attempt to connect to another socket with the IP and port specified
 		int32_t Result = connect(networkSocket, (sockaddr*)&connectionaddr, sizeof(sockaddr));
 
-		if (Result == -1)
+		if (Result <= 0)
 		{
-#if PLATFORM == PLATFORM_MAC || PLATFORM == PLATFORM_UNIX
-			//Should improve error handling in this area
-#elif PLATFORM == PLATFORM_WINDOWS
-			DWORD errorCode = WSAGetLastError();
-#endif
+			printf("failed to connect\n");
 			return false;
 		}
 		
@@ -67,7 +63,7 @@ namespace Nurn
 		int OutSocketHandle = (int) accept(networkSocket, (sockaddr*)&address, &fromLength);
 
 		// If failed, throw exception
-		if (OutSocketHandle == ~0)
+		if (OutSocketHandle <= 0)
 		{
 			//printf("failed to accept connection \n");
 			return false;
