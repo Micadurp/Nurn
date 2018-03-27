@@ -1,0 +1,26 @@
+version: '{build}'
+configuration: Release
+platform: x64
+environment:
+  matrix:
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+skip_commits:
+  files:
+    - '**/.gitignore'
+build_script:
+- cmd: >-    
+    mkdir build
+
+    cd build
+    
+    cmake -G "Visual Studio 15 2017 Win64" -T v141 -DCOMPILE_RELEASE_BUILD=true ..
+
+    cmake --build . --config Release
+    
+    cmake -G "Visual Studio 15 2017 Win64" -T v141 -DCOMPILE_RELEASE_BUILD=false  --clean-first ..
+    
+    cmake --build . --config Debug
+    
+test_script:
+- cmd: >-
+    echo "Aint no tests yet"
