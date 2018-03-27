@@ -2,7 +2,7 @@
 Nurn - some kind of network library
 ===================================
 [![Travis Build Status](https://travis-ci.org/Micadurp/Nurn.svg?branch=master)](https://travis-ci.org/Micadurp/Nurn)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/wdwpo824yk2hktuc?svg=true)](https://ci.appveyor.com/project/Micadurp/nurn/branch/next)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/wdwpo824yk2hktuc?svg=true)](https://ci.appveyor.com/project/Micadurp/nurn)
 - [x] Add cmake
 - [ ] Try using github stuff, such as Issues and Projects
 - [ ] Clean up nurn.cpp and nurn.hpp
