@@ -7,6 +7,9 @@ environment:
 skip_commits:
   files:
     - '**/.gitignore'
+    - '**/LICENSE'
+    - '**/README.md'
+    - '**/.travis.yml'
 build_script:
 - cmd: >-    
     mkdir build
